@@ -16,10 +16,6 @@ plant_list = [
     Plant("Fern", 15, 120)
 ]
 print("=== Plant Factory Output ===")
-# for plant in plant_list:
-#     print(plant.get_info())
-i = 0
-while i < 5:
-    print(plant_list[i].get_info())
-    i = i + 1
-print(f"\nTotal plants created: {i}")
+for plant in plant_list:
+    print(plant.get_info())
+print(f"\nTotal plants created: {len(plant_list)}")
