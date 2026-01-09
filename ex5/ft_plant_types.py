@@ -30,6 +30,9 @@ class Flower(SecurePlant):
     def bloom(self):
         return f"{self.name} is blooming beautifully!"
 
+    def get_info(self):
+        return f"{self.name} (Flower): {self.get_height()}cm, {self.get_age()} days, {self.color} color"
+
 class Tree(SecurePlant):
     def __init__(self, name, height, age, trunk_diameter):
         super().__init__(name, height, age)
@@ -37,34 +40,47 @@ class Tree(SecurePlant):
 
     def produce_shade(self):
         return f"{self.name}  provides 78 square meters of shade"
-
+    
+    def get_info(self):
+        return f"{self.name}(Tree): {self.get_height()}cm, {self.get_age()} days, {self.trunk_diameter} diameter"
+        
 class Vegetable(SecurePlant):
     def __init__(self, name, height, age, harvest_season, nutritional_value):
         super().__init__(name, height, age)
         self.harvest_season = harvest_season
         self.nutritional_value = nutritional_value
 
-Rose = Flower("Rose", 25, 30, "red")
-Daisy = Flower("Daisy", 20, 38, "yellow")
+    def get_nutritional_value(self):
+        return f"{self.name} is rich in {self.nutritional_value}"
 
-Oak = Tree("Oak", 500, 1825, 50)
-Oval = Tree("Oval", 600, 1445, 60)
+    def get_info(self):
+        return f"{self.name} (Vegetable): {self.get_height()}cm, {self.get_age()} days, {self.harvest_season} harvest"
 
-Tomato = Vegetable("Tomato", 80, 90, "summer", " vitamin C")
-Carrot = Vegetable("Carrot", 80, 90, "fall", " vitamin A")
+def main():
+    Rose = Flower("Rose", 25, 30, "red")
+    Daisy = Flower("Daisy", 20, 38, "yellow")
 
-print("=== Garden Plant Types ===")
-print(f"\n{Rose.name} (Flower): {Rose.get_height()}cm, {Rose.get_age()} days, {Rose.color} color")
-print(f"{Rose.bloom()}")
-print(f"\n{Daisy.name} (Flower): {Daisy.get_height()}cm, {Daisy.get_age()} days, {Daisy.color} color")
-print(f"{Daisy.bloom()}")
+    Oak = Tree("Oak", 500, 1825, 50)
+    Oval = Tree("Oval", 600, 1445, 60)
 
-print(f"\n{Oak.name}(Tree): {Oak.get_height()}cm, {Oak.get_age()} days, {Oak.trunk_diameter} diameter")
-print(Oak.produce_shade())
-print(f"\n{Oval.name}(Tree): {Oval.get_height()}cm, {Oval.get_age()} days, {Oval.trunk_diameter} diameter")
-print(Oval.produce_shade())
+    Tomato = Vegetable("Tomato", 80, 90, "summer", " vitamin C")
+    Carrot = Vegetable("Carrot", 80, 90, "fall", " vitamin A")
 
-print(f"\n{Tomato.name} (Vegetable): {Tomato.get_height()}cm, {Tomato.get_age()} days, {Tomato.harvest_season} harvest")
-print(f"{Tomato.name} is rich in {Tomato.nutritional_value}")
-print(f"\n{Carrot.name} (Vegetable): {Carrot.get_height()}cm, {Carrot.get_age()} days, {Carrot.harvest_season} harvest")
-print(f"{Carrot.name} is rich in {Carrot.nutritional_value}")
+    print("=== Garden Plant Types ===")
+    print()
+    print(Rose.get_info())
+    print(Rose.bloom())
+    print(Daisy.get_info())
+    print(Daisy.bloom())
+    print()
+    print(Oak.get_info())
+    print(Oak.produce_shade())
+    print(Oval.get_info())
+    print(Oval.produce_shade())
+    print()
+    print(Tomato.get_info())
+    print(Tomato.get_nutritional_value())
+    print(Carrot.get_info())
+    print(Carrot.get_nutritional_value())
+
+main()
