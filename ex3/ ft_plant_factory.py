@@ -3,8 +3,10 @@ class Plant:
         self.name = name
         self.height = height
         self.age = age
+
     def get_info(self):
         return f"{self.name}: {self.height}cm, {self.age} days old"
+
 
 plant_list = [
     Plant("Rose", 25, 30),
