@@ -9,18 +9,18 @@ class GardenManager:
     """
     _all_gardens = []
 
-    def __init__(self, owner_name):
+    def __init__(self, owner_name: str):
         self.owner_name = owner_name
         self.plants = []
         self.total_growth = 0
         GardenManager._all_gardens.append(self)
 
-    def add_plant(self, plant, shoud_print):
+    def add_plant(self, plant, shoud_print: bool) -> None:
         self.plants.append(plant)
         if shoud_print:
             print(f"Added {plant.name} to {self.owner_name}'s garden")
 
-    def help_plants_grow(self, shoud_print, cm=1):
+    def help_plants_grow(self, shoud_print: bool, cm=1) -> None:
         """
         Makes all plants grow and prints the growth lines.
         Also tracks total growth for analytics (without re-growing later).
@@ -61,11 +61,11 @@ class GardenManager:
         Nested helper class for statistics
         """
         @staticmethod
-        def height_test(h):
+        def height_test(h: int):
             print(f"Height validation test: {h >= 2}")
 
         @staticmethod
-        def plants_info(plants, total_growth):
+        def plants_info(plants, total_growth: int):
             regular = 0
             flowering = 0
             prize = 0
@@ -104,12 +104,12 @@ class GardenManager:
 
 
 class Plant:
-    def __init__(self, name, height):
+    def __init__(self, name: str, height: int):
         self.name = name
         self.__height = 0
         self.set_height(height)
 
-    def set_height(self, height):
+    def set_height(self, height: int) -> None:
         if height < 0:
             print(f"\nInvalid operation attempted: height \
                 {height}cm [REJECTED]")
@@ -120,7 +120,7 @@ class Plant:
     def get_height(self):
         return self.__height
 
-    def grow(self, cm):
+    def grow(self, cm: int):
         self.__height += cm
         return cm
 
@@ -129,7 +129,7 @@ class Plant:
 
 
 class FloweringPlant(Plant):
-    def __init__(self, name, height, color):
+    def __init__(self, name: str, height: int, color: str):
         super().__init__(name, height)
         self.color = color
 
@@ -139,7 +139,7 @@ class FloweringPlant(Plant):
 
 
 class PrizeFlower(FloweringPlant):
-    def __init__(self, name, height, color, prize_points):
+    def __init__(self, name: str, height: int, color: str, prize_points: int):
         super().__init__(name, height, color)
         self.prize_points = prize_points
 

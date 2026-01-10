@@ -1,17 +1,17 @@
 class Plant:
-    def __init__(self, name, height, a_ge):
+    def __init__(self, name: str, height: int, age: int):
         self.name = name
         self.height = height
-        self.a_ge = a_ge
+        self.age = age
 
-    def age(self):
-        self.a_ge += 1
+    def add_age(self):
+        self.age += 1
 
     def grow(self):
         self.height += 1
 
     def get_info(self):
-        return f"{self.name}: {self.height}cm, {self.a_ge} days old"
+        return f"{self.name}: {self.height}cm, {self.age} days old"
 
 
 plant1 = Plant("Rose", 25, 30)
@@ -21,7 +21,7 @@ print(plant1.get_info())
 day = 7
 i = 0
 while i < day - 1:
-    plant1.age()
+    plant1.add_age()
     plant1.grow()
     i += 1
 print(f"=== Day {day} ===")
