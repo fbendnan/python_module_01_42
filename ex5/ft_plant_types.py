@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 class SecurePlant:
     '''
     base class (parent class) representing a plant with
@@ -18,8 +19,8 @@ class SecurePlant:
         Set the plant's height after validation.
         '''
         if height < 0:
-            print(f"\nInvalid operation attempted: \
-                height {height}cm [REJECTED]")
+            print(f"\nInvalid operation attempted:"
+                  f"height {height}cm [REJECTED]")
             print("Security: Negative height rejected")
         else:
             self.__height = height
@@ -29,8 +30,8 @@ class SecurePlant:
         Set the plant's age after validation.
         '''
         if age < 0:
-            print(f"\nInvalid operation attempted: \
-                age {age}days [REJECTED]")
+            print(f"\nInvalid operation attempted:"
+                  f"age {age}days [REJECTED]")
             print("Security: Negative age rejected")
         else:
             self.__age = age
@@ -69,8 +70,8 @@ class Flower(SecurePlant):
         '''
         Get detailed information about the flower.
         '''
-        return f"{self.name} (Flower): {self.get_height()}cm, \
-            {self.get_age()} days, {self.color} color"
+        return (f"{self.name} (Flower): {self.get_height()}cm,"
+                f" {self.get_age()} days, {self.color} color")
 
 
 class Tree(SecurePlant):
@@ -94,8 +95,8 @@ class Tree(SecurePlant):
         '''
         Get detailed information about the tree.
         '''
-        return f"{self.name}(Tree): {self.get_height()}cm, {self.get_age()} \
-            days, {self.trunk_diameter} diameter"
+        return (f"{self.name}(Tree): {self.get_height()}cm, {self.get_age()}"
+                f"days, {self.trunk_diameter} diameter")
 
 
 class Vegetable(SecurePlant):
@@ -121,8 +122,8 @@ class Vegetable(SecurePlant):
         '''
         Get detailed information about the vegetable.
         '''
-        return f"{self.name} (Vegetable): {self.get_height()}cm, \
-            {self.get_age()} days, {self.harvest_season} harvest"
+        return (f"{self.name} (Vegetable): {self.get_height()}cm, "
+                f"{self.get_age()} days, {self.harvest_season} harvest")
 
 
 def main():

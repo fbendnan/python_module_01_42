@@ -76,10 +76,10 @@ class GardenManager:
                     flowering += 1
                 else:
                     regular += 1
-            print(f"\nPlants added: {len(plants)}, Total growth: \
-                {total_growth}cm")
-            print(f"Plant types: {regular} regular, {flowering} flowering, \
-                {prize} prize flowers\n")
+            print(f"\nPlants added: {len(plants)}, Total growth: "
+                  f"{total_growth}cm")
+            print(f"Plant types: {regular} regular, {flowering} flowering, "
+                  f"{prize} prize flowers\n")
 
         @staticmethod
         def garden_score(plants):
@@ -111,8 +111,8 @@ class Plant:
 
     def set_height(self, height: int) -> None:
         if height < 0:
-            print(f"\nInvalid operation attempted: height \
-                {height}cm [REJECTED]")
+            print(f"\nInvalid operation attempted: height "
+                  f"{height}cm [REJECTED]")
             print("Security: Negative height rejected")
         else:
             self.__height = height
@@ -134,8 +134,8 @@ class FloweringPlant(Plant):
         self.color = color
 
     def get_info(self):
-        return f"- {self.name}: {self.get_height()}cm, \
-            {self.color} flowers (blooming)"
+        return (f"- {self.name}: {self.get_height()}cm, "
+                f"{self.color} flowers (blooming)")
 
 
 class PrizeFlower(FloweringPlant):
@@ -145,8 +145,8 @@ class PrizeFlower(FloweringPlant):
 
     def get_info(self):
         return (
-            f"- {self.name}: {self.get_height()}cm, \
-                {self.color} flowers (blooming), "
+            f"- {self.name}: {self.get_height()}cm, "
+            f"{self.color} flowers (blooming), "
             f"Prize points: {self.prize_points}"
         )
 
